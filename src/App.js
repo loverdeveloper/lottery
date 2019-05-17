@@ -1,13 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import Main from './App/screens/Main';
+import About from './App/screens/About';
+import {Route, Switch, HashRouter} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-        <h2>قرئه کشی</h2>
-    </div>
-  );
+    return (
+        <HashRouter>
+            <Switch>
+                <Route exact path="/" component={Main}/>
+                <Route exact path="/about" component={About}/>
+            </Switch>
+        </HashRouter>
+    );
 }
 
 export default App;
