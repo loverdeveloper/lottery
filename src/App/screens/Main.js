@@ -10,6 +10,7 @@ function Main() {
     let [loading,setLoading] = useState(true);
     let [lotted,setLotted] = useState(false);
     let [winner,setWinner] = useState(null);
+    let [justFun,setJustFun] = useState(null);
 
     useEffect(() => {
         console.log(listItems)
@@ -20,6 +21,29 @@ function Main() {
     function unsetItem (index) {
         delete listItems[index];
         setListItems(listItems);
+    }
+    function shuffle() {
+        let currentIndex = listItems.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = listItems[currentIndex];
+            listItems[currentIndex] = listItems[randomIndex];
+            listItems[randomIndex] = temporaryValue;
+        }
+
+        setListItems(listItems);
+        setListItems(listItems);
+        console.log(listItems);
+        setJustFun(Math.random());
+        console.log(nameInput);
+        return 0;
     }
 
     function lottery() {
@@ -65,7 +89,7 @@ function Main() {
                         <div className="col">
                             <div className="row">
                                 <div className="col-4">
-                                    <div className="bot" onClick={lottery}>
+                                    <div className="bot" style={{"animation":"btnSpin 4s"}} onClick={lottery}>
                                         <FontAwesomeIcon className="d-block mx-auto" icon="play"/>
                                     </div>
                                 </div>
@@ -101,6 +125,10 @@ function Main() {
                         <div className="row">
                             <div className="col d-none d-md-block"></div>
                             <div className="col-6">
+                                <div  onClick={shuffle} className="text-muted p-3 pointer">
+                                    <p className="float-right noSelect"> بهم ریختن اسامی لیست 😃</p>
+                                    <FontAwesomeIcon icon="sync-alt"/>
+                                </div>
                                 <div className="items d-block mx-auto">
                                     {listItems.map((arr,index)=>{
                                         return arr!=null? (
@@ -114,7 +142,7 @@ function Main() {
                                                     </div>
                                                     <div className="col">
                                                         <a className="text-danger m-2 pointer" key={index} onClick={(key)=>{listItems.splice(index,1);
-                                                            console.log(listItems);setListItems(listItems);console.log(listItems)}}>
+                                                            console.log(listItems);setListItems(listItems);setJustFun(Math.random())}}>
                                                             <FontAwesomeIcon icon="trash-alt"/>
                                                         </a>
                                                     </div>
@@ -132,7 +160,7 @@ function Main() {
                 <div className="col-3 d-none d-md-block"></div>
             </div>
             <div className="links">
-                <p>Developed By <b>LoverDeveloper
+                <p>Developed By <b>@LoverDeveloper
                     <br/>
                     Available in <a href="http://github.com/loverdeveloper/lottery"><FontAwesomeIcon icon={['fab', 'github']}/> Github</a>
                 </b></p>
