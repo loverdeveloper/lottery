@@ -214,11 +214,12 @@ input[type="text"]:focus {
 }
 
 .links {
-    bottom: 1.5em;
+    font-weight: 100;
+    bottom: 0.2em;
     text-align: center;
-    position: absolute;
+    position: sticky;
     left: 0;
-    right: 0;
+
 }
 
 .headerSection {
@@ -236,4 +237,32 @@ input[type="text"]:focus {
     font-size: 5rem;
     font-weight: 900;
     transform: rotate(5deg);
+}
+.headerSection > h3 {
+    font-size: 1rem;
+    font-weight: 100;
+}
+.headerSection > h1 {
+    font-size: 1rem;
+    font-weight: 100;
+}
+.pointer{
+    cursor: pointer;
+}
+.blured{
+    filter: blur(10px);
+}
+.winner{
+    width: 100%;
+    height: 100vh;
+    font-size: 5rem;
+    top: 5vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    position: absolute;
+    z-index: 1000;
+}
+.winnerImg{
+    max-width: 200px;
 }

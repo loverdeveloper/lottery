@@ -10,11 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTrashAlt);
 
 library.add(faCheck);
 library.add(faPlay);
+library.add(faWindowClose);
 
 
 ReactDOM.render(
