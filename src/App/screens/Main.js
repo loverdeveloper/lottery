@@ -109,13 +109,13 @@ function Main() {
                     <div className="d-block mx-auto">
                         <div className="row">
                             <div className="col d-none d-md-block"></div>
-                            <div className="col-1">
+                            <div className="col-1 col-sm-2">
                                 <div className="textBtn" onClick={()=>{listItems.push(nameInput);setListItems(listItems);setLoading(true);
                                     setNameInput("");}}>
                                     <FontAwesomeIcon icon="check"/>
                                 </div>
                             </div>
-                            <div className="col-5">
+                            <div className="col-lg-6 col-sm-10">
                                 <input type="text" placeholder="نام فرد" value={nameInput} onChange={(text)=>{setNameInput(text.target.value.toString());console.log(nameInput)}} className="input"/>
                             </div>
                             <div className="col d-none d-md-block"></div>
@@ -124,7 +124,7 @@ function Main() {
                     <div className="d-block mx-auto">
                         <div className="row">
                             <div className="col d-none d-md-block"></div>
-                            <div className="col-6">
+                            <div className="col-lg-6 col-sm-12">
                                 <div  onClick={shuffle} className="text-muted p-3 pointer">
                                     <p className="float-right noSelect"> بهم ریختن اسامی لیست 😃</p>
                                     <FontAwesomeIcon icon="sync-alt"/>

@@ -63,6 +63,17 @@ This set of fonts are used in this project under the license: (.....)
     src: url('App/assets/fonts/eot/IRANSansWeb(FaNum).eot');
     src: url('App/assets/fonts/eot/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('App/assets/fonts/woff2/IRANSansWeb(FaNum).woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('App/assets/fonts/woff/IRANSansWeb(FaNum).woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('App/assets/fonts/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
 }
+@media (max-width: 576px) {
+    .input{
+        width: 90% !important;
+    }
+}
+@media (min-width: 768px) {
+    .input{
+        width: 100% !important;
+    }
+}
+
 
 body {
     background-image: linear-gradient(120deg, #f6d366 0%, #fda085 100%);
@@ -115,13 +126,13 @@ a {
 
 .input {
     height: 3em;
-    width: 100%;
     border-radius: 0.6em;
     border: none;
     padding: 0.2em;
 }
 
 .textBtn {
+    z-index: 1000;
     height: 3em;
     border: none;
     background-color: #EF9443;
