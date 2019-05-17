@@ -25,8 +25,8 @@ function Main() {
     function lottery() {
         let number = Math.floor((Math.random() * listItems.length) + 1);
         setLotted(true);
-        setWinner(number-1);
-        console.log(number-1);
+        setWinner(number);
+        console.log(number);
     }
 
     return (
@@ -42,7 +42,8 @@ function Main() {
                             </div>
                             <img src={winnerImg} className=" winnerImg" alt=""/>
                             <h3 className="text-muted">برنده قرعه کشی</h3>
-                            <h1 className="text-red">{winner?listItems[winner]:null}</h1>
+                            <h3 className="text-muted">#{winner>-1?[winner-1]:null}</h3>
+                            <h1 className="text-red">{winner>-1?listItems[winner-1]:null}</h1>
                         </div>
                     </div>
                 </div>}
@@ -131,7 +132,10 @@ function Main() {
                 <div className="col-3 d-none d-md-block"></div>
             </div>
             <div className="links">
-                <p>Developed By <b>LoverDeveloper</b></p>
+                <p>Developed By <b>LoverDeveloper
+                    <br/>
+                    Available in <a href="http://github.com/loverdeveloper/lottery"><FontAwesomeIcon icon={['fab', 'github']}/> Github</a>
+                </b></p>
             </div>
         </div>
     );

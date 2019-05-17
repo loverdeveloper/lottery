@@ -11,12 +11,14 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 library.add(faTrashAlt);
 
 library.add(faCheck);
 library.add(faPlay);
 library.add(faWindowClose);
+library.add(fab);
 
 
 ReactDOM.render(
