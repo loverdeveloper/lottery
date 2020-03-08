@@ -44,9 +44,19 @@ function Main() {
         return 0;
     }
 
+    function getRandomInt(max) {
+        let number = Math.floor(Math.random() * Math.floor(max));
+        console.log(number);
+        if(number < 0){
+            console.error("Negative number");
+            getRandomInt(max);
+        }
+        return number;
+    }
+
     function lottery() {
-        let number = Math.floor((Math.random() * listItems.length) + 1);
-        setLotted(true);
+        let number = +getRandomInt(listItems.length);
+        setLotted(true);    
         setWinner(number);
     }
 
@@ -71,8 +81,8 @@ function Main() {
                             </div>
                             <img src={winnerImg} className=" winnerImg" alt=""/>
                             <h3 className="text-muted">برنده قرعه کشی</h3>
-                            <h3 className="text-muted">#{winner>-1?[winner-1]:null}</h3>
-                            <h1 className="text-red">{winner>-1?listItems[winner-1]:null}</h1>
+                            <h3 className="text-muted">#{winner>-1?[winner]:null}</h3>
+                            <h1 className="text-red">{winner>-1?listItems[winner]:null}</h1>
                         </div>
                     </div>
                 </div>}
