@@ -1,8 +1,9 @@
 import React, {useState,useEffect} from 'react';
-import '../../App.css';
+import '../../App.scss';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import winnerImg from '../assets/images/winner.webp'
+import sign from '../assets/images/signature.png'
 function Main() {
     let local = localStorage.getItem('list');
     let [nameInput,setNameInput] = useState('');
@@ -13,7 +14,6 @@ function Main() {
     let [justFun,setJustFun] = useState(null);
 
     useEffect(() => {
-        console.log(listItems)
         if (listItems){
             localStorage.setItem('list',JSON.stringify(listItems))
         }
@@ -40,9 +40,7 @@ function Main() {
 
         setListItems(listItems);
         setListItems(listItems);
-        console.log(listItems);
         setJustFun(Math.random());
-        console.log(nameInput);
         return 0;
     }
 
@@ -50,10 +48,17 @@ function Main() {
         let number = Math.floor((Math.random() * listItems.length) + 1);
         setLotted(true);
         setWinner(number);
-        console.log(number);
+    }
+
+    function addMember(){
+        if (nameInput){
+            listItems.push(nameInput);setListItems(listItems);setLoading(true);
+            setNameInput("");
+        }
     }
 
     return (
+        <>
         <div className="container">
             {!lotted?null
                 :<div className="row">
@@ -110,13 +115,12 @@ function Main() {
                         <div className="row">
                             <div className="col d-none d-md-block"></div>
                             <div className="col-1 col-sm-2">
-                                <div className="textBtn" onClick={()=>{listItems.push(nameInput);setListItems(listItems);setLoading(true);
-                                    setNameInput("");}}>
+                                <div className="textBtn" onClick={addMember}>
                                     <FontAwesomeIcon icon="check"/>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-sm-10">
-                                <input type="text" placeholder="نام فرد" value={nameInput} onChange={(text)=>{setNameInput(text.target.value.toString());console.log(nameInput)}} className="input"/>
+                                <input type="text" placeholder="نام فرد" value={nameInput} onChange={(text)=>{setNameInput(text.target.value.toString());}} className="input"/>
                             </div>
                             <div className="col d-none d-md-block"></div>
                         </div>
@@ -133,16 +137,16 @@ function Main() {
                                     {listItems.map((arr,index)=>{
                                         return arr!=null? (
                                             <div className="item" key={index}>
-                                                <div className="row">
-                                                    <div className="col">
+                                                <div className="l-row">
+                                                    <div className="l-id">
                                                         <span>#{index}</span>
                                                     </div>
-                                                    <div className="col-7">
+                                                    <div className="l-text">
                                                         <h6>{arr}</h6>
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="l-con">
                                                         <a className="text-danger m-2 pointer" key={index} onClick={(key)=>{listItems.splice(index,1);
-                                                            console.log(listItems);setListItems(listItems);setJustFun(Math.random())}}>
+                                                            setListItems(listItems);setJustFun(Math.random())}}>
                                                             <FontAwesomeIcon icon="trash-alt"/>
                                                         </a>
                                                     </div>
@@ -159,13 +163,15 @@ function Main() {
                 </div>
                 <div className="col-3 d-none d-md-block"></div>
             </div>
-            <div className="links">
+        </div>
+        <div className="links">
+                                    <img src={sign} className="lover-sign"/>
                 <p>Developed By <b>@LoverDeveloper
                     <br/>
-                    Available in <a href="http://github.com/loverdeveloper/lottery"><FontAwesomeIcon icon={['fab', 'github']}/> Github</a>
+                    Available in <a href="http://github.com/loverdeveloper/lottery"><FontAwesomeIcon icon={['fab', 'github']}/> github.com/loverdeveloper/lottery</a>
                 </b></p>
             </div>
-        </div>
+        </>
     );
 }
 

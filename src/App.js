@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Main from './App/screens/Main';
 import About from './App/screens/About';
 import {Route, Switch, HashRouter} from "react-router-dom";
