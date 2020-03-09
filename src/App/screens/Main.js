@@ -46,7 +46,6 @@ function Main() {
 
     function getRandomInt(max) {
         let number = Math.floor(Math.random() * Math.floor(max));
-        console.log(number);
         if(number < 0){
             console.error("Negative number");
             getRandomInt(max);
