@@ -55,7 +55,7 @@ function Main() {
 
     function lottery() {
         let number = +getRandomInt(listItems.length);
-        setLotted(true);    
+        setLotted(true);
         setWinner(number);
     }
 
@@ -138,7 +138,7 @@ function Main() {
                         <div className="row">
                             <div className="col d-none d-md-block"></div>
                             <div className="col-lg-6 col-sm-12">
-                                <div  onClick={shuffle} className="text-muted p-3 pointer">
+                                <div  onClick={shuffle} className="text-muted-c p-3 pointer">
                                     <p className="float-right noSelect"> بهم ریختن اسامی لیست 😃</p>
                                     <FontAwesomeIcon icon="sync-alt"/>
                                 </div>
